@@ -1,0 +1,55 @@
+/..
+fibonacci recursive:
+../
+
+@ FibonacciRecursive (int x) >> int
+</
+	if (x ==0)
+	</
+		>> x
+	/>
+	if (x == 1)
+	</
+		>> x
+	/>	
+	>> FibonacciRecursive ( x - 1 ) + FibonacciRecursive ( x - 2 )
+	
+/>
+
+int n = 10
+int i = 0
+displayln("\nFibonacci recursive: %d", n)
+while (i<n)
+</
+	displayln("%d", FibonacciRecursive(i))
+	i = i +1
+/>
+
+displayln("\nFibonacci interative: %d", n)
+@ FibonacciInterative (int n) >> int
+</
+	int x1 = 0
+	int x2 = 1
+	int i = 0
+	while (i < n)
+	</
+		int temp = x1
+		x1 = x2
+		x2 = x2 + temp
+		i = i + 1
+	/>
+	>> x1
+/>
+
+i = 0
+while (i < n)
+</
+	displayln("%d", FibonacciInterative(i))
+	i = i + 1
+/>
+
+createfile("fib.txt")
+
+
+
+
