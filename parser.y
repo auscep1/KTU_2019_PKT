@@ -66,8 +66,7 @@ Define our terminal symbols (tokens). This should match our tokens.l lex file. W
 %token 		<token> TNOT TAND TOR
 %token 		<token> TIF TELSE TWHILE TTO 
 %token 		<token> TSQUOTE TDEF TRETURN TRETURN_SIMPLE TVAR IS
-%token 		<token> TBLOCKSTART TBLOCKEND 
-%token		TCREATEFILE, TAPPENDFILE
+%token 		<token> TBLOCKSTART TBLOCKEND DEBUGSTART DEBUGEND
 
 /* 
 Define the type of node our nonterminal symbols represent. The types refer to the %union declaration above. Ex: when we call an ident (defined by union type ident) we are really calling an (Identifier*). It makes the compiler happy.
@@ -76,9 +75,9 @@ Define the type of node our nonterminal symbols represent. The types refer to th
 %type 		<expr> literals expr boolean_expr binop_expr unaryop_expr array_expr array_access range_expr
 %type 		<varvec> func_decl_args
 %type 		<exprvec> call_args array_elemets_expr 
-%type 		<block> program stmts block
+%type 		<block> program stmts block 
 %type 		<stmt> stmt var_decl var_decl_deduce func_decl conditional_if return while class_decl array_add_element /*print_stmt*/
-%type 		<token> comparison 
+%type 		<token> comparison debug_expr
 
 
 /* Operator precedence for mathematical operators */
@@ -114,6 +113,10 @@ stmt 		: var_decl
 
 block 		: TBLOCKSTART stmts TBLOCKEND { $$ = $2; }
 		| TBLOCKSTART TBLOCKEND { $$ = new pkt2::Block(); }
+		;
+/*debug dont work*/
+debug_expr	: DEBUGSTART  stmt DEBUGEND  { $$ = displayln($1); }
+		| DEBUGSTART DEBUGEND { $$ = new pkt2::PrintDebug(); }
 		;
 
 conditional_if 	: TIF TLPAREN expr TRPAREN block TELSE block {$$ = new pkt2::Conditional($3,$5,$7);}

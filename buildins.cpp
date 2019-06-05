@@ -107,4 +107,20 @@ DECLSPEC double lessdouble( double val1 , double val2)
 	}
 }
 
+extern "C"
+DECLSPEC void help( char * str)
+{
+	std::cout << "\nTHIS IS HELP FUNCTIONS:" << "\n"; 
+	std::cout << "int printvalue( int val )" << "\n"; 
+	std::cout << "double printdouble( double val )" << "\n"; 
+	std::cout << "void display( char * str, ... )"<< "\n"; 
+	std::cout << "void displayln( char * str, ... )"<< "\n"; 
+	std::cout << "void createfile( char * str)"<< "\n"; 
+	std::cout << "void appendfilestring(  char * fn, char * val)"<< "\n"; 
+	std::cout << "void appendfileinteger(  char * fn, int val)"<< "\n"; 
+	std::cout << "void appendfiledouble(  char * fn, double val)"<< "\n"; 
+	std::cout << "double powdouble( double val )"<< "\n"; 
+	std::cout << "double lessdouble( double val1 , double val2)"<< "\n"; 
+	std::cout << "void help( char * str)"<< "\n";
+}
 
