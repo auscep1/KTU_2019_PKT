@@ -1,30 +1,27 @@
 
-GO TO root: 
-		sudo -s 
-	or 
-		sudo su
 
 BUILD COMPILATOR:
-	go to catalog root -> pkt-> pkt2 -> build
-		ccmake ..
-		c e c e g
+	clone git in pkt2 catalog
+	create build catalog
+	go to build catalog
+		cmake ..
+		
 		make
 
 MOVE COMPILED FILE FOR TO TESTING:
-	from root -> pkt-> pkt2 -> build
-	to root -> pkt-> pkt2 -> test
+	from pkt2 -> build
+	pkt2 -> test
 	current catalog build:
 		mv pkt2 ../test/
 
 RUN FILE FOR TESTING:
-	from directory root -> pkt-> pkt2 -> test
+	from directory pkt2 -> test
 	./pkt2 test.pkt2 -d
 
 
 CATALOG TREE:
-	tree -d root
-		root
-		└── pkt
+	tree -d pkt2
+
 		    └── pkt2
 			├── build
 			│   └── CMakeFiles
@@ -37,8 +34,7 @@ CATALOG TREE:
 			│       └── pkt2.dir
 			└── test
 NEEDED FILES:
-		root
-		└── pkt
+
 		    └── pkt2
 			├── AstNode.cpp
 			├── AstNode.h
@@ -50,9 +46,8 @@ NEEDED FILES:
 			├── tokens.l
 
 FILES TREE:
-	tree root
-		root
-		└── pkt
+	tree pkt2
+
 		    └── pkt2
 			├── Array.cpp
 			├── AstNode.cpp
@@ -165,4 +160,12 @@ Comments:
 		~it's one line comment
 		~displayln("IT'S ONE LINE COMMENT")
 
-
+Functions:
+	int printvalue( int val );
+	double printdouble( double val );
+	display( char * str, ... );
+	displayln( char * str, ... );
+	createfile( char * str);
+	appendfilestring(  char * fn, char * val);
+	appendfileinteger(  char * fn, int val);
+	appendfiledouble(  char * fn, double val);
