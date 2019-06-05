@@ -109,13 +109,8 @@ stmt 		: var_decl
 		| return
 		| while
 		| array_add_element
-		/*| print_stmt*/
 		| expr { $$ = new pkt2::ExpressionStatement($1); }
 		;
-/*
-print_stmt	: TCREATEFILE TLPAREN ident TRPAREN {$$ = new pkt2::CreateFile($3);}
-		;
-*/
 
 block 		: TBLOCKSTART stmts TBLOCKEND { $$ = $2; }
 		| TBLOCKSTART TBLOCKEND { $$ = new pkt2::Block(); }
@@ -188,8 +183,6 @@ unaryop_expr 	: TNOT expr { $$ = new pkt2::UnaryOperator($1, $2); }
 		;
 
 boolean_expr 	: expr comparison expr { $$ = new pkt2::CompOperator($1, $2, $3); }
-		/*| TRETURN_SIMPLE expr comparison expr { $$ = new pkt2::CompOperatorRS($1, $2, $3); }
-		| TRETURN expr comparison expr { $$ = new pkt2::CompOperatorR($1, $2, $3); }*/
 		;
 
 call_args 	: /*blank*/  { $$ = new pkt2::ExpressionList(); }

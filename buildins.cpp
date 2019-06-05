@@ -2,9 +2,9 @@
 #include <stdio.h>
 #include <iostream>
 #include <cstring>
+#include <string>
 #include <fstream>
 #include "buildins.h"
-
 
 /*
  *! some helper/debug function
@@ -54,9 +54,38 @@ DECLSPEC void displayln( char * str, ... )
 
 /*create file*/
 extern "C"
-DECLSPEC void createfile( char * str)
+DECLSPEC void createfile( char * fn)
 {
-    	std::ofstream outfile(str);
+    	std::ofstream outfile(fn);
 	outfile.close();
 }
+
+/*append to file string*/
+extern "C"
+DECLSPEC void appendfilestring( char * fn, char * val)
+{
+	std::ofstream outfile;
+  	outfile.open(fn, std::ios_base::app);
+  	outfile << val; 
+	outfile.close();
+}
+
+extern "C"
+DECLSPEC void appendfileinteger( char * fn, int val)
+{
+	std::ofstream outfile;
+  	outfile.open(fn, std::ios_base::app);
+  	outfile << val; 
+	outfile.close();
+}
+
+extern "C"
+DECLSPEC void appendfiledouble( char * fn, double val)
+{
+	std::ofstream outfile;
+  	outfile.open(fn, std::ios_base::app);
+  	outfile << val; 
+	outfile.close();
+}
+
 
