@@ -4,15 +4,14 @@ BUILD COMPILATOR:
 	clone git in pkt2 catalog
 	create build catalog
 	go to build catalog
-		cmake ..
-		
+		cmake ..	
 		make
 
 MOVE COMPILED FILE FOR TO TESTING:
 	from pkt2 -> build
 	pkt2 -> test
 	current catalog build:
-		mv pkt2 ../test/
+		cp pkt2 ../test/pkt2
 
 RUN FILE FOR TESTING:
 	from directory pkt2 -> test

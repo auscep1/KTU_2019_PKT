@@ -71,8 +71,13 @@ else
   	displayln("y1>%d is equal to %d",y2, y1>20)
 />
 
-
-
+string fn = "test.txt"
+createfile(fn)
+appendfilestring(fn, "\ntest print\n")
+appendfileinteger(fn, 15)
+appendfilestring(fn, "\n")
+appendfiledouble(fn, 8.7)
+appendfilestring(fn, "\n")
 
 
 

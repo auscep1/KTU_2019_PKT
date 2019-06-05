@@ -122,8 +122,8 @@ void CodeGenContext::setupBuiltIns()
       i->setName("val");
    builtins.push_back({f, (void*)appendfileinteger});
 
-/*append to file integer*/
-   ft = FunctionType::get(Type::getVoidTy(getGlobalContext()), argTypesInt8Ptr, true);
+/*append to file double*/
+   ft = FunctionType::get(Type::getDoubleTy(getGlobalContext()), argTypesInt8Ptr, true);
    f  = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(appendfiledouble), getModule());
    i  = f->arg_begin();
    if (i != f->arg_end())
