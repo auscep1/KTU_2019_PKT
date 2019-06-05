@@ -88,4 +88,23 @@ DECLSPEC void appendfiledouble( char * fn, double val)
 	outfile.close();
 }
 
+extern "C"
+DECLSPEC double powdouble( double val )
+{
+        return val*val;
+}
+
+extern "C"
+DECLSPEC double lessdouble( double val1 , double val2)
+{
+	if(val1>val2)
+	{
+		return val2;
+	}
+	else 
+	{
+        	return val1;
+	}
+}
+
 

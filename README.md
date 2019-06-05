@@ -168,3 +168,5 @@ Functions:
 	appendfilestring(  char * fn, char * val);
 	appendfileinteger(  char * fn, int val);
 	appendfiledouble(  char * fn, double val);
+	double powdouble( double val );
+	double lessdouble( double val1 , double val2);

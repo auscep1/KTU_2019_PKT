@@ -14,3 +14,5 @@ extern "C" DECLSPEC void createfile( char * str);
 extern "C" DECLSPEC void appendfilestring(  char * fn, char * val);
 extern "C" DECLSPEC void appendfileinteger(  char * fn, int val);
 extern "C" DECLSPEC void appendfiledouble(  char * fn, double val);
+extern "C" DECLSPEC double powdouble( double val );
+extern "C" DECLSPEC double lessdouble( double val1 , double val2);
