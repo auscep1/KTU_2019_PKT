@@ -106,6 +106,29 @@ void CodeGenContext::setupBuiltIns()
       i->setName("format_str");
    builtins.push_back({f, (void*)createfile});
 
+/*append to file string*/
+   ft = FunctionType::get(Type::getVoidTy(getGlobalContext()), argTypesInt8Ptr, true);
+   f  = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(appendfilestring), getModule());
+   i  = f->arg_begin();
+   if (i != f->arg_end())
+      i->setName("format_str");
+   builtins.push_back({f, (void*)appendfilestring});
+  
+/*append to file integer*/
+   ft = FunctionType::get(Type::getVoidTy(getGlobalContext()), argTypesInt8Ptr, true);
+   f  = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(appendfileinteger), getModule());
+   i  = f->arg_begin();
+   if (i != f->arg_end())
+      i->setName("val");
+   builtins.push_back({f, (void*)appendfileinteger});
+
+/*append to file integer*/
+   ft = FunctionType::get(Type::getVoidTy(getGlobalContext()), argTypesInt8Ptr, true);
+   f  = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(appendfiledouble), getModule());
+   i  = f->arg_begin();
+   if (i != f->arg_end())
+      i->setName("val");
+   builtins.push_back({f, (void*)appendfiledouble});
 }
 
 /*! Compile the AST into a module */
