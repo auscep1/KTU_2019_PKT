@@ -79,6 +79,12 @@ appendfilestring(fn, "\n")
 appendfiledouble(fn, 8.7)
 appendfilestring(fn, "\n")
 
+double d= 10.1
+displayln("pow %f is equal to %f",d, powdouble(d))
+
+double v1 = 8.8
+double v2 = 9.5
+displayln("less double from %f & %f is %f",v1, v2, lessdouble(v1,v2))
 
 
 

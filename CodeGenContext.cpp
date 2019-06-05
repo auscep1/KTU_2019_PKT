@@ -129,6 +129,22 @@ void CodeGenContext::setupBuiltIns()
    if (i != f->arg_end())
       i->setName("val");
    builtins.push_back({f, (void*)appendfiledouble});
+
+/*pow double*/
+   ft = FunctionType::get(Type::getDoubleTy(getGlobalContext()), argTypesOneDouble, false);
+   f  = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(powdouble), getModule());
+   i  = f->arg_begin();
+   if (i != f->arg_end())
+      i->setName("val");
+   builtins.push_back({f, (void*)powdouble});
+
+/*less double*/
+   ft = FunctionType::get(Type::getDoubleTy(getGlobalContext()), argTypesOneDouble, true);
+   f  = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(lessdouble), getModule());
+   i  = f->arg_begin();
+   if (i != f->arg_end())
+      i->setName("val");
+   builtins.push_back({f, (void*)lessdouble});
 }
 
 /*! Compile the AST into a module */
