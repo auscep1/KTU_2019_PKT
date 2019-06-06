@@ -145,6 +145,14 @@ void CodeGenContext::setupBuiltIns()
    if (i != f->arg_end())
       i->setName("val");
    builtins.push_back({f, (void*)lessdouble});
+
+/*help*/
+   ft = FunctionType::get(Type::getVoidTy(getGlobalContext()), argTypesInt8Ptr, true);
+   f  = Function::Create(ft, Function::ExternalLinkage, MAKE_LLVM_EXTERNAL_NAME(help), getModule());
+   i  = f->arg_begin();
+   if (i != f->arg_end())
+      i->setName("format_str");
+   builtins.push_back({f, (void*)help});
 }
 
 /*! Compile the AST into a module */

@@ -42,6 +42,7 @@ public:
    virtual void VisitBinaryOp( BinaryOp* expr ) = 0;
    virtual void VisitCompOperator( CompOperator* expr ) = 0;
    virtual void VisitBlock( Block* expr ) = 0;
+   /*virtual void VisitPrintDebug( PrintDebug* expr ) = 0;*/
    virtual void VisitStatement( Statement* stmt ) = 0;
    virtual void VisitReturnStatement( Return* retstmt ) = 0;
    virtual void VisitFunctionDeclaration( FunctionDeclaration* fndecl ) = 0;

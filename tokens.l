@@ -164,6 +164,8 @@ import			BEGIN(incl);
 \r			/* cr are ignored */
 "if"			return TOKEN(TIF);
 "else"			return TOKEN(TELSE);
+"#debugstart"		return TOKEN(DEBUGSTART);
+"#debugend"		return TOKEN(DEBUGEND);
 "</"			return TOKEN(TBLOCKSTART);
 "/>"			return TOKEN(TBLOCKEND);
 ">>"[ \t]*[\n]		return TOKEN(TRETURN_SIMPLE); 	/*return*/

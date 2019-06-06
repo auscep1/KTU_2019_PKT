@@ -414,6 +414,16 @@ Value* Block::codeGen(CodeGenContext& context)
     return last;
 }
 
+Value* PrintDebug::codeGen(CodeGenContext& context)
+{
+    Value *last = nullptr;
+    for ( auto s : statements) {
+        last = s->codeGen(context);
+	 std::cout << "DEBUG: " << s << "\n";
+    }
+    return last;
+}
+
 Value* ExpressionStatement::codeGen(CodeGenContext& context)
 {
     return expression->codeGen(context);
@@ -534,12 +544,5 @@ Value* Return::codeGen(CodeGenContext& context)
     }
 }
 
-/*
-CreateFile::CreateFile(std::string fn) :filename (fn){}
-void CreateFile::evaluate(){
-	std::fstream file;
-	file.open(filename, std::fstream::trunc |  std::ios::out);
-	file.close();
-}*/
 
 }

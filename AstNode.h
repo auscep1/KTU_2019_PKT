@@ -308,6 +308,25 @@ public:
    }
 };
 
+
+class PrintDebug : public Expression 
+{
+public:
+   StatementList statements;
+   
+   PrintDebug() {}
+   virtual ~PrintDebug()
+   {
+      for(auto i : statements) {
+         delete i;
+      }
+      statements.clear();
+   }
+   virtual llvm::Value* codeGen(CodeGenContext& context);
+   NodeType getType() { return NodeType::expression; }
+   virtual std::string toString() { std::stringstream s; s << "debug "; return s.str(); }
+};
+
 class ExpressionStatement : public Statement
 {
    Expression* expression;

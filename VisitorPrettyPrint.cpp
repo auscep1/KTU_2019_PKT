@@ -124,6 +124,17 @@ void VisitorPrettyPrint::VisitBlock( Block* expr )
    out << indent_spaces(indent) << "End " << expr->toString() << std::endl;
 }
 
+/*void VisitorPrettyPrint::VisitPrintDebug( PrintDebug* expr )
+{
+   out << indent_spaces(indent) << "Create " << expr->toString() << std::endl;
+   ++indent;
+   for(auto stmt : expr->statements) {
+      stmt->Accept( *this );
+   }
+   --indent;
+   out << indent_spaces(indent) << "End " << expr->toString() << std::endl;
+}*/
+
 void VisitorPrettyPrint::VisitExpressionStatement( ExpressionStatement* expr )
 {
    out << indent_spaces(indent) << "Create " << expr->toString() << std::endl;
